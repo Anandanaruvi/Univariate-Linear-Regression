@@ -27,16 +27,36 @@ To implement univariate Linear Regression to fit a straight line using least squ
 
 ## Program
 ```
-import pandas as pd
-df=pd.read_csv('nba.csv')
-print(df.head(10))
-print(df.tail(5))
-print("Number of rows:",len(df.axes[0]))
-print("Number of columns:",len(df.axes[1])) 
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.array([0,1,2,3,4,5,6,7,8,9])
+y = np.array([1,3,2,5,7,8,8,9,10,12])
+plt.scatter(x,y)
+plt.show()
+xmean = np.mean(x)
+ymean = np.mean(y)
+num=0
+den=0
+for i in range(len(x)):
+ num+=(x[i]-xmean)*(y[i]-ymean)
+ den+=(x[i]-xmean)**2
+m = num/den
+b = ymean - m*xmean
+print(m,b)
+ypred = m*x+b
+print(ypred)
+plt.scatter(x,y,color='Red')
+plt.plot(x,ypred,color='Blue')
+plt.show()
+
 ```
 ## Output
 
-![MULTIV](https://user-images.githubusercontent.com/120443233/215506889-cf1e193f-55bd-43b6-9a30-73ef6583f836.png)
+![univ4](https://user-images.githubusercontent.com/120443233/215650293-81c25a4c-06c6-4d99-9c70-20967c88b4dd.png)
+
+
+
+
 
 
 
